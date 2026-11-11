@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-skin="velvet">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Just Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Doto:wght@700;900&family=Nunito:wght@500;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Rajdhani:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <section id="login" class="screen gut" hidden aria-label="Sign in">
+    <div>
+      <h1 class="display">Just Us</h1>
+      <p>Sign in once on this device</p>
+    </div>
+    <form id="loginForm" autocomplete="on">
+      <input id="email" type="email" placeholder="Email" autocomplete="username" required>
+      <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+      <button class="btn pri" id="loginBtn" type="submit">Sign in</button>
+      <p class="err" id="loginErr" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="lock" class="screen gut" hidden aria-label="Locked">
+    <div>
+      <h1 class="display">Just Us</h1>
+      <p id="lockMsg">Enter your PIN</p>
+    </div>
+    <div class="dots" id="dots"><i></i><i></i><i></i><i></i></div>
+    <div class="pad" id="pad"></div>
+    <button class="linkbtn" data-act="forgot" id="forgotBtn">Forgot PIN? Sign out</button>
+  </section>
+
+  <section id="chat" class="screen" hidden>
+    <header class="top gut">
+      <div class="avatar" id="av">?</div>
+      <div class="who">
+        <b class="display" id="pname">...</b>
+        <small id="status">offline</small>
+      </div>
+      <button class="heatchip" data-act="open" data-k="heat" aria-label="Heat meter"><span>🔥</span><span class="bar"><span id="herHeatBar"></span></span><span id="herHeatTxt">50</span></button>
+      <button class="iconbtn ic" data-act="open" data-k="themes" aria-label="Themes and settings" id="icTheme"></button>
+      <button class="iconbtn ic" data-act="lock" aria-label="Lock" id="icLock"></button>
+      <button class="iconbtn ic panic" data-act="panic" aria-label="Panic" id="icPanic"></button>
+    </header>
+    <main class="msgs gut" id="msgs" aria-live="polite"></main>
+    <nav class="tray gut" id="tray"></nav>
+    <div class="composer gut">
+      <button class="cbtn ic" data-act="attach" aria-label="Send photo or video" id="icPlus"></button>
+      <button class="cbtn tbtn" data-act="timer" aria-label="Disappearing timer" id="timerBtn"></button>
+      <button class="cbtn ic" data-act="tease" aria-label="Tease mode" id="teaseBtn"></button>
+      <textarea id="input" rows="1" placeholder="Say something naughty..."></textarea>
+      <button class="cbtn send ic" data-act="send" aria-label="Send" id="icSend"></button>
+      <input type="file" id="file" accept="image/*,video/*" multiple hidden>
+    </div>
+  </section>
+
+  <section id="calc" class="screen gut" hidden aria-label="Calculator">
+    <div class="scr" id="scr">0</div>
+    <div class="keys" id="keys"></div>
+  </section>
+</div>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
